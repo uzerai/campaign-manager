@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.netlify
+.vscode
+dev.db
+dist
+dist-babel
+node_modules
+yarn-error.log
