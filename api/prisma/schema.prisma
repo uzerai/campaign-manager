@@ -1,5 +1,5 @@
 datasource DS {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -8,11 +8,77 @@ generator client {
   binaryTargets = env("BINARY_TARGET")
 }
 
-// Define your own datamodels here and run `yarn redwood db save` to create
-// migrations for them.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+enum CharacterType {
+  NPC
+  PLAYER
+}
+
+enum Size {
+  TINY
+  SMALL
+  MEDIUM
+  LARGE
+  HUGE
+  GIGANTIC
+}
+
+enum Race {
+  HUMAN
+  HALFLING
+  SKINWALKER
+  DWARF
+  GNOME
+}
+
+model Character {
+  id        String               @default(uuid()) @id
+  type      CharacterType        @default(NPC)
+  name      String
+  level     Int
+  race      Race                 @default(HUMAN)
+  size      Size
+  details   CharacterDetail
+  baseStats CharacterBaseStats
+  statBonus CharacterStatBonuses
+  skills    CharacterSkills
+}
+
+model CharacterDetail {
+  id          String    @default(uuid()) @id
+  characterId String
+  character   Character @relation(fields: [characterId], references: [id])
+  age         String
+  alginment   String
+  height      String
+  weight      String
+  deity       String
+  homeland    String
+}
+
+model CharacterStatBonuses {
+  id          String    @default(uuid()) @id
+  characterId String
+  character   Character @relation(fields: [characterId], references: [id])
+}
+
+model CharacterBaseStats {
+  id           String    @default(uuid()) @id
+  characterId  String
+  character    Character @relation(fields: [characterId], references: [id])
+  strength     Int
+  dexterity    Int
+  constitution Int
+  intelligence Int
+  wisdom       Int
+  charisma     Int
+  initiative   Int
+  armorClass   Int
+  hitPoints    Int
+  baseSpeed    Int
+}
+
+model CharacterSkills {
+  id          String    @default(uuid()) @id
+  characterId String
+  character   Character @relation(fields: [characterId], references: [id])
 }

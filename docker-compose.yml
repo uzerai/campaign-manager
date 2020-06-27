@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgresql-db:
+    container_name: campaign-manager-postgres
+    image: postgres
+    environment:
+         - POSTGRES_USER=postgres
+         - POSTGRES_PASSWORD=postgres
+         - POSTGRES_DB=campaign_manager
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db:
