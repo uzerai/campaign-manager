@@ -1,0 +1,51 @@
+mutation {
+  createCharacter(input: {
+    type: NPC
+    name: "Test Character"
+    level: 1
+    race: HUMAN
+    size: MEDIUM
+    details: {
+      create: {
+        age: "25"
+        alginment: "NEUTRAL"
+        height: "6ft 11'"
+        weight: "100lbs"
+        deity: "NONE"
+        homeland: "NONE"
+      }
+    }
+    skills: {
+      create: {
+        skills: []
+      }
+    }
+    baseStats: {
+      create: {
+        spellResistance: 10
+        strength: 10
+        dexterity: 10
+        constitution: 10
+        intelligence: 10
+        wisdom: 10
+        charisma: 10
+        initiative: 10
+        armorClass: 10
+        touchArmorClass: 10
+        flatArmorClass: 10
+        cmb: 10
+        cld: 10
+        bab: 10
+        hitPoints: 10
+        landSpeed: 10
+        waterSpeed: 10
+        climbSpeed: 10
+        burrowSpeed: 10
+        flySpeed: 10
+      }
+    }
+  }) {
+    id
+    type
+  }
+}
