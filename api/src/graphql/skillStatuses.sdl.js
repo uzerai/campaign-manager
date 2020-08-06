@@ -4,8 +4,8 @@ export const schema = gql`
   type SkillStatus {
     id: String!
     type: SkillType!
-    characterSkillId: String!
-    characterSkill: CharacterSkills!
+    characterId: String!
+    character: Character!
     value: Int!
     classSkill: Boolean!
     proficient: Boolean!
@@ -54,12 +54,13 @@ export const schema = gql`
   }
 
   type Query {
-    skillStatuses: [SkillStatus]!
+    skillStatuses: [SkillStatus!]!
+    skillStatus(id: String!): SkillStatus!
   }
 
   input CreateSkillStatusInput {
     type: SkillType!
-    characterSkillId: String!
+    characterId: String!
     value: Int!
     classSkill: Boolean!
     proficient: Boolean!
@@ -67,9 +68,15 @@ export const schema = gql`
 
   input UpdateSkillStatusInput {
     type: SkillType
-    characterSkillId: String
+    characterId: String
     value: Int
     classSkill: Boolean
     proficient: Boolean
+  }
+
+  type Mutation {
+    createSkillStatus(input: CreateSkillStatusInput!): SkillStatus!
+    updateSkillStatus(id: String!, input: UpdateSkillStatusInput!): SkillStatus!
+    deleteSkillStatus(id: String!): SkillStatus!
   }
 `

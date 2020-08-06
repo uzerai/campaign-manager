@@ -6,7 +6,7 @@ export const schema = gql`
     characterId: String!
     character: Character!
     temporary: Boolean!
-    source: StatBonusSource!
+    source: StatBonusSource
     target: CharacterStat!
   }
 
@@ -16,7 +16,6 @@ export const schema = gql`
     SKILL
     ABILITY
   }
-
   enum CharacterStat {
     ACROBATICS
     APPRAISE
@@ -80,13 +79,14 @@ export const schema = gql`
   }
 
   type Query {
-    characterStatBonuses: [CharacterStatBonus]!
+    characterStatBonuses: [CharacterStatBonus!]!
+    characterStatBonus(id: String!): CharacterStatBonus!
   }
 
   input CreateCharacterStatBonusInput {
     characterId: String!
     temporary: Boolean!
-    source: StatBonusSource!
+    source: StatBonusSource
     target: CharacterStat!
   }
 
@@ -95,5 +95,16 @@ export const schema = gql`
     temporary: Boolean
     source: StatBonusSource
     target: CharacterStat
+  }
+
+  type Mutation {
+    createCharacterStatBonus(
+      input: CreateCharacterStatBonusInput!
+    ): CharacterStatBonus!
+    updateCharacterStatBonus(
+      id: String!
+      input: UpdateCharacterStatBonusInput!
+    ): CharacterStatBonus!
+    deleteCharacterStatBonus(id: String!): CharacterStatBonus!
   }
 `

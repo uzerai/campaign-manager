@@ -1,3 +1,4 @@
 # Prisma Migrate lockfile v1
 
-20200628161451-create_base_character_models
+20200703220357-create_initial_tables
+20200703233522-create_initial_schema

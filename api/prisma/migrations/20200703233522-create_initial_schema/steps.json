@@ -268,6 +268,31 @@
       "arity": "Required"
     },
     {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Character",
+          "field": "level"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Character",
+          "field": "level"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "1"
+    },
+    {
       "tag": "CreateField",
       "model": "Character",
       "field": "race",
@@ -307,6 +332,31 @@
       "arity": "Required"
     },
     {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Character",
+          "field": "size"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Character",
+          "field": "size"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "MEDIUM"
+    },
+    {
       "tag": "CreateField",
       "model": "Character",
       "field": "details",
@@ -317,7 +367,7 @@
       "tag": "CreateField",
       "model": "Character",
       "field": "baseStats",
-      "type": "CharacterBaseStats",
+      "type": "CharacterBase",
       "arity": "Required"
     },
     {
@@ -331,8 +381,8 @@
       "tag": "CreateField",
       "model": "Character",
       "field": "skills",
-      "type": "CharacterSkills",
-      "arity": "Required"
+      "type": "SkillStatus",
+      "arity": "List"
     },
     {
       "tag": "CreateModel",
@@ -439,42 +489,42 @@
       "model": "CharacterDetail",
       "field": "age",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "CharacterDetail",
-      "field": "alginment",
+      "field": "alignment",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "CharacterDetail",
       "field": "height",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "CharacterDetail",
       "field": "weight",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "CharacterDetail",
       "field": "deity",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
       "model": "CharacterDetail",
       "field": "homeland",
       "type": "String",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateModel",
@@ -584,11 +634,36 @@
       "arity": "Required"
     },
     {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "CharacterStatBonus",
+          "field": "temporary"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "CharacterStatBonus",
+          "field": "temporary"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
+    },
+    {
       "tag": "CreateField",
       "model": "CharacterStatBonus",
       "field": "source",
       "type": "StatBonusSource",
-      "arity": "Required"
+      "arity": "Optional"
     },
     {
       "tag": "CreateField",
@@ -599,11 +674,11 @@
     },
     {
       "tag": "CreateModel",
-      "model": "CharacterBaseStats"
+      "model": "CharacterBase"
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "id",
       "type": "String",
       "arity": "Required"
@@ -613,7 +688,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "id"
         },
         "directive": "default"
@@ -625,7 +700,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "id"
         },
         "directive": "default"
@@ -638,7 +713,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "id"
         },
         "directive": "id"
@@ -646,14 +721,14 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "characterId",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "character",
       "type": "Character",
       "arity": "Required"
@@ -663,7 +738,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "character"
         },
         "directive": "relation"
@@ -675,7 +750,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "character"
         },
         "directive": "relation"
@@ -689,7 +764,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "character"
         },
         "directive": "relation"
@@ -699,7 +774,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "spellResistance",
       "type": "Int",
       "arity": "Required"
@@ -709,7 +784,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "spellResistance"
         },
         "directive": "default"
@@ -721,7 +796,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "spellResistance"
         },
         "directive": "default"
@@ -731,7 +806,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "strength",
       "type": "Int",
       "arity": "Required"
@@ -741,7 +816,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "strength"
         },
         "directive": "default"
@@ -753,7 +828,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "strength"
         },
         "directive": "default"
@@ -763,7 +838,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "dexterity",
       "type": "Int",
       "arity": "Required"
@@ -773,7 +848,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "dexterity"
         },
         "directive": "default"
@@ -785,7 +860,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "dexterity"
         },
         "directive": "default"
@@ -795,7 +870,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "constitution",
       "type": "Int",
       "arity": "Required"
@@ -805,7 +880,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "constitution"
         },
         "directive": "default"
@@ -817,7 +892,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "constitution"
         },
         "directive": "default"
@@ -827,7 +902,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "intelligence",
       "type": "Int",
       "arity": "Required"
@@ -837,7 +912,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "intelligence"
         },
         "directive": "default"
@@ -849,7 +924,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "intelligence"
         },
         "directive": "default"
@@ -859,7 +934,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "wisdom",
       "type": "Int",
       "arity": "Required"
@@ -869,7 +944,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "wisdom"
         },
         "directive": "default"
@@ -881,7 +956,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "wisdom"
         },
         "directive": "default"
@@ -891,7 +966,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "charisma",
       "type": "Int",
       "arity": "Required"
@@ -901,7 +976,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "charisma"
         },
         "directive": "default"
@@ -913,7 +988,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "charisma"
         },
         "directive": "default"
@@ -923,7 +998,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "initiative",
       "type": "Int",
       "arity": "Required"
@@ -933,7 +1008,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "initiative"
         },
         "directive": "default"
@@ -945,7 +1020,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "initiative"
         },
         "directive": "default"
@@ -955,7 +1030,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "armorClass",
       "type": "Int",
       "arity": "Required"
@@ -965,7 +1040,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "armorClass"
         },
         "directive": "default"
@@ -977,7 +1052,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "armorClass"
         },
         "directive": "default"
@@ -987,7 +1062,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "touchArmorClass",
       "type": "Int",
       "arity": "Required"
@@ -997,7 +1072,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "touchArmorClass"
         },
         "directive": "default"
@@ -1009,7 +1084,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "touchArmorClass"
         },
         "directive": "default"
@@ -1019,7 +1094,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "flatArmorClass",
       "type": "Int",
       "arity": "Required"
@@ -1029,7 +1104,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "flatArmorClass"
         },
         "directive": "default"
@@ -1041,7 +1116,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "flatArmorClass"
         },
         "directive": "default"
@@ -1051,7 +1126,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "cmb",
       "type": "Int",
       "arity": "Required"
@@ -1061,7 +1136,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "cmb"
         },
         "directive": "default"
@@ -1073,7 +1148,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "cmb"
         },
         "directive": "default"
@@ -1083,7 +1158,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "cld",
       "type": "Int",
       "arity": "Required"
@@ -1093,7 +1168,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "cld"
         },
         "directive": "default"
@@ -1105,7 +1180,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "cld"
         },
         "directive": "default"
@@ -1115,7 +1190,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "bab",
       "type": "Int",
       "arity": "Required"
@@ -1125,7 +1200,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "bab"
         },
         "directive": "default"
@@ -1137,7 +1212,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "bab"
         },
         "directive": "default"
@@ -1147,7 +1222,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "hitPoints",
       "type": "Int",
       "arity": "Required"
@@ -1157,7 +1232,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "hitPoints"
         },
         "directive": "default"
@@ -1169,7 +1244,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "hitPoints"
         },
         "directive": "default"
@@ -1179,7 +1254,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "landSpeed",
       "type": "Int",
       "arity": "Required"
@@ -1189,7 +1264,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "landSpeed"
         },
         "directive": "default"
@@ -1201,7 +1276,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "landSpeed"
         },
         "directive": "default"
@@ -1211,7 +1286,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "waterSpeed",
       "type": "Int",
       "arity": "Required"
@@ -1221,7 +1296,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "waterSpeed"
         },
         "directive": "default"
@@ -1233,7 +1308,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "waterSpeed"
         },
         "directive": "default"
@@ -1243,7 +1318,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "climbSpeed",
       "type": "Int",
       "arity": "Required"
@@ -1253,7 +1328,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "climbSpeed"
         },
         "directive": "default"
@@ -1265,7 +1340,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "climbSpeed"
         },
         "directive": "default"
@@ -1275,7 +1350,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "burrowSpeed",
       "type": "Int",
       "arity": "Required"
@@ -1285,7 +1360,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "burrowSpeed"
         },
         "directive": "default"
@@ -1297,7 +1372,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "burrowSpeed"
         },
         "directive": "default"
@@ -1307,7 +1382,7 @@
     },
     {
       "tag": "CreateField",
-      "model": "CharacterBaseStats",
+      "model": "CharacterBase",
       "field": "flySpeed",
       "type": "Int",
       "arity": "Required"
@@ -1317,7 +1392,7 @@
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "flySpeed"
         },
         "directive": "default"
@@ -1329,7 +1404,7 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterBaseStats",
+          "model": "CharacterBase",
           "field": "flySpeed"
         },
         "directive": "default"
@@ -1394,15 +1469,15 @@
     {
       "tag": "CreateField",
       "model": "SkillStatus",
-      "field": "characterSkillId",
+      "field": "characterId",
       "type": "String",
       "arity": "Required"
     },
     {
       "tag": "CreateField",
       "model": "SkillStatus",
-      "field": "characterSkill",
-      "type": "CharacterSkills",
+      "field": "character",
+      "type": "Character",
       "arity": "Required"
     },
     {
@@ -1411,7 +1486,7 @@
         "path": {
           "tag": "Field",
           "model": "SkillStatus",
-          "field": "characterSkill"
+          "field": "character"
         },
         "directive": "relation"
       }
@@ -1423,12 +1498,12 @@
         "path": {
           "tag": "Field",
           "model": "SkillStatus",
-          "field": "characterSkill"
+          "field": "character"
         },
         "directive": "relation"
       },
       "argument": "fields",
-      "value": "[characterSkillId]"
+      "value": "[characterId]"
     },
     {
       "tag": "CreateArgument",
@@ -1437,7 +1512,7 @@
         "path": {
           "tag": "Field",
           "model": "SkillStatus",
-          "field": "characterSkill"
+          "field": "character"
         },
         "directive": "relation"
       },
@@ -1484,6 +1559,31 @@
       "arity": "Required"
     },
     {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "SkillStatus",
+          "field": "classSkill"
+        },
+        "directive": "default"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "SkillStatus",
+          "field": "classSkill"
+        },
+        "directive": "default"
+      },
+      "argument": "",
+      "value": "false"
+    },
+    {
       "tag": "CreateField",
       "model": "SkillStatus",
       "field": "proficient",
@@ -1491,23 +1591,12 @@
       "arity": "Required"
     },
     {
-      "tag": "CreateModel",
-      "model": "CharacterSkills"
-    },
-    {
-      "tag": "CreateField",
-      "model": "CharacterSkills",
-      "field": "id",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
       "tag": "CreateDirective",
       "location": {
         "path": {
           "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "id"
+          "model": "SkillStatus",
+          "field": "proficient"
         },
         "directive": "default"
       }
@@ -1518,84 +1607,13 @@
         "tag": "Directive",
         "path": {
           "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "id"
+          "model": "SkillStatus",
+          "field": "proficient"
         },
         "directive": "default"
       },
       "argument": "",
-      "value": "uuid()"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "id"
-        },
-        "directive": "id"
-      }
-    },
-    {
-      "tag": "CreateField",
-      "model": "CharacterSkills",
-      "field": "characterId",
-      "type": "String",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateField",
-      "model": "CharacterSkills",
-      "field": "character",
-      "type": "Character",
-      "arity": "Required"
-    },
-    {
-      "tag": "CreateDirective",
-      "location": {
-        "path": {
-          "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "character"
-        },
-        "directive": "relation"
-      }
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "character"
-        },
-        "directive": "relation"
-      },
-      "argument": "fields",
-      "value": "[characterId]"
-    },
-    {
-      "tag": "CreateArgument",
-      "location": {
-        "tag": "Directive",
-        "path": {
-          "tag": "Field",
-          "model": "CharacterSkills",
-          "field": "character"
-        },
-        "directive": "relation"
-      },
-      "argument": "references",
-      "value": "[id]"
-    },
-    {
-      "tag": "CreateField",
-      "model": "CharacterSkills",
-      "field": "skills",
-      "type": "SkillStatus",
-      "arity": "List"
+      "value": "false"
     }
   ]
 }

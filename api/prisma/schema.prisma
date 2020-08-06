@@ -34,25 +34,25 @@ model Character {
   id        String               @default(uuid()) @id
   type      CharacterType        @default(NPC)
   name      String
-  level     Int
+  level     Int                  @default(1)
   race      Race                 @default(HUMAN)
-  size      Size
-  details   CharacterDetail
-  baseStats CharacterBaseStats
+  size      Size                 @default(MEDIUM)
+  details   CharacterDetail?
+  baseStats CharacterBase?
   statBonus CharacterStatBonus[]
-  skills    CharacterSkills
+  skills    SkillStatus[]
 }
 
 model CharacterDetail {
   id          String    @default(uuid()) @id
   characterId String
   character   Character @relation(fields: [characterId], references: [id])
-  age         String
-  alginment   String
-  height      String
-  weight      String
-  deity       String
-  homeland    String
+  age         String?
+  alignment   String?
+  height      String?
+  weight      String?
+  deity       String?
+  homeland    String?
 }
 
 // Base stats + skills
@@ -129,12 +129,12 @@ model CharacterStatBonus {
   id          String          @default(uuid()) @id
   characterId String
   character   Character       @relation(fields: [characterId], references: [id])
-  temporary   Boolean
-  source      StatBonusSource
+  temporary   Boolean         @default(false)
+  source      StatBonusSource?
   target      CharacterStat
 }
 
-model CharacterBaseStats {
+model CharacterBase {
   id              String    @default(uuid()) @id
   characterId     String
   character       Character @relation(fields: [characterId], references: [id])
@@ -163,11 +163,11 @@ model CharacterBaseStats {
 model SkillStatus {
   id               String          @default(uuid()) @id
   type             SkillType
-  characterSkillId String
-  characterSkill   CharacterSkills @relation(fields: [characterSkillId], references: [id])
+  characterId      String
+  character        Character       @relation(fields: [characterId], references: [id])
   value            Int             @default(0)
-  classSkill       Boolean
-  proficient       Boolean
+  classSkill       Boolean         @default(false)
+  proficient       Boolean         @default(false)
 }
 
 enum SkillType {
@@ -212,9 +212,3 @@ enum SkillType {
   USE_MAGIC_DEVICE
 }
 
-model CharacterSkills {
-  id          String        @default(uuid()) @id
-  characterId String
-  character   Character     @relation(fields: [characterId], references: [id])
-  skills      SkillStatus[]
-}

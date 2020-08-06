@@ -30,12 +30,12 @@ export const deleteCharacter = ({ id }) => {
 }
 
 export const Character = {
-  characterDetail: (_obj, { root }) =>
-    db.character.findOne({ where: { id: root.id } }).characterDetail(),
-  characterBaseStats: (_obj, { root }) =>
-    db.character.findOne({ where: { id: root.id } }).characterBaseStats(),
-  characterStatBonuses: (_obj, { root }) =>
-    db.character.findOne({ where: { id: root.id } }).characterStatBonuses(),
-  characterSkills: (_obj, { root }) =>
-    db.character.findOne({ where: { id: root.id } }).characterSkills(),
+  details: (_obj, { root }) =>
+    db.character.findOne({ where: { id: root.id } }).details(),
+  baseStats: (_obj, { root }) =>
+    db.character.findOne({ where: { id: root.id } }).baseStats(),
+  statBonus: (_obj, { root }) =>
+    db.character.findOne({ where: { id: root.id } }).statBonus(),
+  skills: (_obj, { root }) =>
+    db.character.findOne({ where: { id: root.id } }).skills(),
 }

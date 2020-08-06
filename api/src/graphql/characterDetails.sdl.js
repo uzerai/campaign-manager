@@ -5,44 +5,45 @@ export const schema = gql`
     id: String!
     characterId: String!
     character: Character!
-    age: String!
-    alginment: String!
-    height: String!
-    weight: String!
-    deity: String!
-    homeland: String!
+    age: String
+    alignment: String
+    height: String
+    weight: String
+    deity: String
+    homeland: String
   }
 
   type Query {
     characterDetails: [CharacterDetail!]!
+    characterDetail(id: String!): CharacterDetail!
   }
 
   input CreateCharacterDetailInput {
     characterId: String!
-    age: String!
-    alginment: String!
-    height: String!
-    weight: String!
-    deity: String!
-    homeland: String!
-  }
-
-  input CreateCharacterDetailWithoutCharacterInput {
-    age: String!
-    alginment: String!
-    height: String!
-    weight: String!
-    deity: String!
-    homeland: String!
+    age: String
+    alignment: String
+    height: String
+    weight: String
+    deity: String
+    homeland: String
   }
 
   input UpdateCharacterDetailInput {
     characterId: String
     age: String
-    alginment: String
+    alignment: String
     height: String
     weight: String
     deity: String
     homeland: String
+  }
+
+  type Mutation {
+    createCharacterDetail(input: CreateCharacterDetailInput!): CharacterDetail!
+    updateCharacterDetail(
+      id: String!
+      input: UpdateCharacterDetailInput!
+    ): CharacterDetail!
+    deleteCharacterDetail(id: String!): CharacterDetail!
   }
 `

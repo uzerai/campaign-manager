@@ -9,16 +9,15 @@ export const schema = gql`
     race: Race!
     size: Size!
     details: CharacterDetail!
-    baseStats: CharacterBaseStats!
-    statBonus: [CharacterStatBonus]
-    skills: CharacterSkills
+    baseStats: CharacterBase!
+    statBonus: [CharacterStatBonus]!
+    skills: [SkillStatus]!
   }
 
   enum CharacterType {
     NPC
     PLAYER
   }
-
   enum Race {
     HUMAN
     HALFLING
@@ -26,7 +25,6 @@ export const schema = gql`
     DWARF
     GNOME
   }
-
   enum Size {
     TINY
     SMALL
@@ -47,21 +45,6 @@ export const schema = gql`
     level: Int!
     race: Race!
     size: Size!
-    details: CreateCharacterCharacterDetailsCreationInput!
-    baseStats: CreateCharacterBaseStatsCreationInput!
-    skills: CreateCharacterCharacterSkillsCreationInput!
-  }
-
-  input CreateCharacterCharacterDetailsCreationInput {
-    create: CreateCharacterDetailWithoutCharacterInput
-  }
-
-  input CreateCharacterBaseStatsCreationInput {
-    create: CreateCharacterBaseStatsWithoutCharacterInput
-  }
-
-  input CreateCharacterCharacterSkillsCreationInput {
-    create: CreateCharacterSkillsWithoutCharacterInput
   }
 
   input UpdateCharacterInput {
